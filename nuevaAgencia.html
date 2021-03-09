@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="ISO-8859-1" />
+	<title>Portal de Clientes | Dashboard</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="assets/css/default/app.min.css" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+	<link href="assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />    
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
+</head>
+<body>
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade show">
+		<span class="spinner"></span>
+	</div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar-default">
+			<!-- begin navbar-header -->
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand"><img src="assets/img/logo_tpa.jpg" /> Portal de Clientes</a>
+				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- end navbar-header --><!-- begin header-nav -->
+			<ul class="navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+						<i class="fa fa-bell"></i>
+						<span class="label">5</span>
+					</a>
+					<div class="dropdown-menu media-list dropdown-menu-right">
+						<div class="dropdown-header">NOTIFICACIONES (5)</div>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-envelope media-object bg-silver-darker"></i>
+								<i class="fas fa-exclamation-circle text-red media-object-icon"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">Contenedor TCNU2882691 Sin TATC</h6>
+								<!--<p>Cliente 1 se ha registrado en el portal</p>-->
+								<div class="text-muted f-s-10">5 minutos atr&aacute;s</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-envelope media-object bg-silver-darker"></i>
+								<i class="fas fa-exclamation-circle text-red media-object-icon"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">Contenedor GCXU2187212 Planificado</h6>
+								<!--<p>Notificaci&oacute;n 2</p>-->
+								<div class="text-muted f-s-10">17 minutos atr&aacute;s</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-envelope media-object bg-silver-darker"></i>
+								<i class="fas fa-exclamation-circle text-red media-object-icon"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">Contenedor CAIU6710378 Planificado</h6>
+								<!--<p>Notificaci&oacute;n 2</p>-->
+								<div class="text-muted f-s-10">22 minutos atr&aacute;s</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-envelope media-object bg-silver-darker"></i>
+								<i class="fas fa-exclamation-circle text-red media-object-icon"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">Contenedor FSCU5101374 Esperando Pago</h6>
+								<!--<p>Notificaci&oacute;n 2</p>-->
+								<div class="text-muted f-s-10">53 minutos atr&aacute;s</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-envelope media-object bg-silver-darker"></i>
+								<i class="fas fa-exclamation-circle text-red media-object-icon"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">Contenedor GLDU9887005 Realizado</h6>
+								<!--<p>Notificaci&oacute;n 2</p>-->
+								<div class="text-muted f-s-10">2 horas atr&aacute;s</div>
+							</div>
+						</a>
+						<div class="dropdown-footer text-center">
+							<a href="javascript:;">Ver m&aacute;s</a>
+						</div>
+					</div>
+				</li>
+				<li class="dropdown navbar-user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/img/user/user-13.jpg" alt="" /> 
+						<span class="d-none d-md-inline">ITXAP Soluciones</span> <b class="caret"></b>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="javascript:;" class="dropdown-item">Editar Perfil</a>
+						<a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">3</span> Mensajes</a>
+						<a href="javascript:;" class="dropdown-item">Configuraciones</a>
+						<div class="dropdown-divider"></div>
+						<a href="login.html" class="dropdown-item">Cerrar sesi&oacute;n</a>
+					</div>
+				</li>
+			</ul>
+			<!-- end header-nav -->
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar sidebar-grid">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				<!-- begin sidebar user -->
+				<ul class="nav">
+					<li class="nav-profile">
+						<a href="javascript:;" data-toggle="nav-profile">
+							<div class="cover with-shadow"></div>
+							<div class="image">
+								<img src="assets/img/user/user-13.jpg" alt="" />
+							</div>
+							<div class="info">
+								<b class="caret pull-right"></b>ITXAP Soluciones
+								<small>Administrador</small>
+							</div>
+						</a>
+					</li>
+					<li>
+						<ul class="nav nav-profile">
+							<li><a href="javascript:;"><i class="fa fa-cog"></i> Configuraciones</a></li>
+							<li><a href="javascript:;"><i class="fa fa-question-circle"></i> Manuales</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end sidebar user -->
+				<!-- begin sidebar nav -->
+				<ul class="nav"><li class="nav-header">Navegaci&oacute;n</li>
+					<li class="has-sub">
+						<a href="javascript:;">
+							<b class="caret"></b>
+							<i class="fas fa-dolly"></i>
+							<span>Importaci&oacute;n</span>
+						</a>
+					</li>
+					<li class="has-sub">
+						<a href="javascript:;">
+							<b class="caret"></b>
+							<i class="fas fa-ship"></i>
+							<span>Exportaci&oacute;n</span>
+						</a>
+						<ul class="sub-menu">
+							<li class="has-sub">
+								<a href="javascript:;">
+									<b class="caret"></b>
+									<i class="fas fa-file-contract"></i>
+									Inscripciones
+								</a>
+								<ul class="sub-menu">
+									<li class="has-sub">
+										<a href="exportacionNacional.html"><i class="fas fa-flag"></i>Chile</a>
+									</li>
+									<li class="has-sub">
+										<a href="javascript:;">
+											<b class="caret"></b>
+											<i class="fas fa-flag"></i>
+											Per&uacute;
+										</a>
+										<ul class="sub-menu">
+											<li><a href="contPeru.html">Contenedores</a></li>
+											<li><a href="embarPeru.html">Procesamiento Embarque</a></li>
+										</ul>
+									</li>
+									<li class="has-sub">
+										<a href="javascript:;">
+											<b class="caret"></b>
+											<i class="fas fa-flag"></i>
+											Bolivia
+										</a>
+										<ul class="sub-menu">
+											
+											<li><a href="embarBolivia.html">Procesamiento Embarque</a></li>
+										</ul>
+									</li>
+									<li class="has-sub">
+										<a href="javascript:;">
+											<b class="caret"></b>
+											<i class="fas fa-flag"></i>
+											Extraportuarios
+										</a>
+										<ul class="sub-menu">
+											<li><a href="contExtrapor.html">Contenedores</a></li>
+											<li><a href="embarExtraporBuscar.html">Procesamiento Embarque</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="has-sub">
+								<a href="javascript:;">
+									<b class="caret"></b>
+									<i class="fas fa-truck-loading"></i>
+									Carga Suelta
+								</a>
+								<ul class="sub-menu">
+									<li><a href="#">Asignar</a></li>
+									<li><a href="#">Consolidar</a></li>
+									<li><a href="#">Consulta Servicios</a></li>
+									<li><a href="#">Embarque Online</a></li>
+									<li><a href="#">Stock Carga</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="has-sub active">
+						<a href="javascript:;">
+                            <b class="caret"></b>
+							<i class="fas fa-toolbox"></i>
+							<span>Administraci&oacute;n</span>
+						</a>
+						<ul class="sub-menu active">
+							<li class="has-sub active">
+								<a href="javascript:;">
+									<b class="caret"></b>
+                                    <i class="fas fa-user"></i>
+									Usuarios
+								</a>
+								<ul class="sub-menu">
+									<li class="active"><a href="agencias.html">Agencia de Aduanas</a></li>
+									<li><a href="#">Extraportuarios</a></li>
+                                    <li><a href="#">Transportistas</a></li>
+								</ul>
+							</li>
+						</ul>                        
+					</li>
+					<li class="has-sub">
+						<a href="javascript:;">
+							<i class="fas fa-file-invoice-dollar"></i>
+							<span>Pago Facturas</span>
+						</a>                    
+					</li>
+					<li>
+						<a href="javascript:;">
+							<i class="fas fa-door-open"></i>
+							<span>Cerrar Sesi&oacute;n</span>
+						</a>                    
+					</li>                    					
+					<!-- begin sidebar minify button -->
+					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+					<!-- end sidebar minify button -->
+				</ul>
+				<!-- end sidebar nav -->
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
+		
+		<!-- begin #content -->
+		<div id="content" class="content">
+			<!-- begin breadcrumb -->
+			<!--<ol class="breadcrumb float-xl-right">
+				<li class="breadcrumb-item"><a href="javascript:;">Home</a>&nbsp;/ Administraci�n / Usuarios / Agencia de Aduanas</li>
+			</ol>-->  
+			<!-- end breadcrumb -->
+			<!-- begin page-header -->
+			<h1 class="page-header">Nueva Agencia
+            </h1>
+			<!-- end page-header -->	
+           
+            <div class="panel panel-inverse">
+				<!-- begin panel-heading -->
+				<div class="panel-heading">
+					<h4 class="panel-title">Datos Agencia</h4>
+				</div>
+				<!-- end panel-heading -->
+				<!-- begin panel-body -->
+                <div class="panel-body panel-form">
+					<form class="form-horizontal form-bordered">
+						<div class="form-group row">
+				            <label class="col-lg-2 col-form-label">Rut Empresa</label>
+							<div class="col-md-3">
+								<input type="text" class="form-control m-b-5" placeholder="Rut Empresa" />
+							</div>        
+                                                                
+                            <label class="col-form-label col-md-2">Cod. Aduana</label>
+							<div class="col-md-5">
+								<input type="text" class="form-control m-b-5" placeholder="Cod. Aduana" />
+							</div>  
+						</div>
+						<div class="form-group row">
+				            <label class="col-form-label col-md-2">Nombre</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control m-b-5" placeholder="Nombre" />
+							</div>   
+						</div>
+						<div class="form-group row">
+    						<label class="col-form-label col-md-2">Rut Representante</label>
+    						<div class="col-md-3">
+    							<input type="text" class="form-control m-b-5" placeholder="Rut Representante" />
+    						</div>                                    
+    
+    						<label class="col-form-label col-md-2">Representante</label>
+    						<div class="col-md-5">
+    							<input type="text" class="form-control m-b-5" placeholder="Nombre Representante" />
+    						</div>
+						</div>
+						<div class="form-group row">
+    						<label class="col-form-label col-md-2">Ciudad</label>
+    						<div class="col-md-3">
+    							<input type="text" class="form-control m-b-5" placeholder="Ciudad" />
+    						</div>                             
+                                                    
+							<label class="col-form-label col-md-2">Direcci&oacute;n</label>
+							<div class="col-md-5">
+								<input type="text" class="form-control m-b-5" placeholder="Direcci&oacute;n" />
+							</div>                            
+                             
+						</div>  
+						<div class="form-group row">
+							<label class="col-form-label col-md-2">Tel&eacute;fono</label>
+							<div class="col-md-3">
+								<input type="text" class="form-control m-b-5" placeholder="Tel&eacute;fono" />
+                            </div>                                
+
+							<label class="col-form-label col-md-2">Email</label>
+							<div class="col-md-5">
+								<input type="email" class="form-control m-b-5" placeholder="Email" />
+							</div>
+						</div>
+                        
+                        <div class="form-group row">
+                            <label class="col-md-9 col-sm-5">&nbsp;</label>
+							<div class="col-md-1 col-sm-5">
+                                <a href="agencias.html" class="btn btn-secondary m-r-5">Cancelar</a>                                                                           
+							</div>                            
+							<div class="col-md-2 col-sm-5">
+                                <a href="#" class="btn btn-primary m-r-5"><i class="fas fa-save"></i> Guardar</a>                            
+							</div>          
+                        </div>                
+					</form>
+				</div>                				                              							                                                                                                              				
+				<!-- end panel-body -->
+			</div>                                 				    
+		</div>
+		<!-- end #content -->
+		
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/js/app.min.js"></script>
+	<script src="assets/js/theme/default.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+    
+</body>
+</html>

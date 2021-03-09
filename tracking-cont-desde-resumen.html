@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>Portal de Clientes | Tracking contenedores</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link rel="icon" type="image/png" href="assets/img/logo_tpa.png">
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="assets/css/default/app.min.css" rel="stylesheet" />
+    <!-- ================== END BASE CSS STYLE ================== -->
+
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <link href="assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
+</head>
+
+<body>
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade show">
+        <span class="spinner"></span>
+    </div>
+    <!-- end #page-loader -->
+
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+        <!-- begin #header -->
+        <div id="header" class="header navbar-default">
+            <!-- begin navbar-header -->
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand"><img src="assets/img/logo_tpa.jpg" /> Portal de Clientes</a>
+                <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin header-nav -->
+            <ul class="navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+                        <i class="fa fa-bell"></i>
+                        <span class="label">5</span>
+                    </a>
+                    <div class="dropdown-menu media-list dropdown-menu-right">
+                        <div class="dropdown-header">NOTIFICACIONES (5)</div>
+                        <a href="javascript:;" class="dropdown-item media">
+                            <div class="media-left">
+                                <i class="fa fa-envelope media-object bg-silver-darker"></i>
+                                <i class="fas fa-exclamation-circle text-red media-object-icon"></i>
+                            </div>
+                            <div onclick="goResumen2()" class="media-body">
+                                <h6 class="media-heading">Impo Tbo Carga Suelta Esperando Pago</h6>
+                                <!--<p>Cliente 1 se ha registrado en el portal</p>-->
+                                <div class="text-muted f-s-10">5 minutos atr&aacute;s</div>
+                            </div>
+                        </a>
+                        <a href="javascript:;" class="dropdown-item media">
+                            <div class="media-left">
+                                <i class="fa fa-envelope media-object bg-silver-darker"></i>
+                                <i class="fas fa-exclamation-circle text-red media-object-icon"></i>
+                            </div>
+                            <div onclick="goIndirecto()" class="media-body">
+                                <h6 class="media-heading">Contenedor GCXU2187212 Esperando Pago</h6>
+                                <!--<p>Notificaci&oacute;n 2</p>-->
+                                <div class="text-muted f-s-10">17 minutos atr&aacute;s</div>
+                            </div>
+                        </a>
+                        <a href="javascript:;" class="dropdown-item media">
+                            <div class="media-left">
+                                <i class="fa fa-envelope media-object bg-silver-darker"></i>
+                                <i class="fas fa-exclamation-circle text-red media-object-icon"></i>
+                            </div>
+                            <div onclick="redireccionar()" class="media-body">
+                                <h6 class="media-heading">Contenedor CAIU6710378 Planificado</h6>
+                                <!--<p>Notificaci&oacute;n 2</p>-->
+                                <div class="text-muted f-s-10">22 minutos atr&aacute;s</div>
+                            </div>
+                        </a>
+                        <a href="javascript:;" class="dropdown-item media">
+                            <div class="media-left">
+                                <i class="fa fa-envelope media-object bg-silver-darker"></i>
+                                <i class="fas fa-exclamation-circle text-red media-object-icon"></i>
+                            </div>
+                            <div class="media-body">
+                                <h6 class="media-heading">Contenedor FSCU5101374 Realizado</h6>
+                                <!--<p>Notificaci&oacute;n 2</p>-->
+                                <div class="text-muted f-s-10">53 minutos atr&aacute;s</div>
+                            </div>
+                        </a>
+                        <a href="javascript:;" class="dropdown-item media">
+                            <div class="media-left">
+                                <i class="fa fa-envelope media-object bg-silver-darker"></i>
+                                <i class="fas fa-exclamation-circle text-red media-object-icon"></i>
+                            </div>
+                            <div class="media-body" onclick="goResumen()">
+                                <h6 class="media-heading">Contenedor GLDU9887005 Despachado</h6>
+                                <!--<p>Notificaci&oacute;n 2</p>-->
+                                <div class="text-muted f-s-10">2 horas atr&aacute;s</div>
+                            </div>
+                        </a>
+                        <div class="dropdown-footer text-center">
+                            <a href="javascript:;">Ver m&aacute;s</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown navbar-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="assets/img/user/user-13.jpg" alt="" />
+                        <span class="d-none d-md-inline">ITXAP Soluciones</span> <b class="caret"></b>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="javascript:;" class="dropdown-item">Editar Perfil</a>
+                        <a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">3</span> Mensajes</a>
+                        <a href="javascript:;" class="dropdown-item">Configuraciones</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="login.html" class="dropdown-item">Cerrar sesi&oacute;n</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- end header-nav -->
+        </div>
+        <!-- end #header -->
+
+        <!-- begin #sidebar -->
+        <div id="sidebar" class="sidebar sidebar-grid">
+            <!-- begin sidebar scrollbar -->
+            <div data-scrollbar="true" data-height="100%">
+                <!-- begin sidebar user -->
+                <ul class="nav">
+                    <li class="nav-profile">
+                        <a href="javascript:;" data-toggle="nav-profile">
+                            <div class="cover with-shadow"></div>
+                            <div class="image">
+                                <img src="assets/img/user/user-13.jpg" alt="" />
+                            </div>
+                            <div class="info">
+                                <b class="caret pull-right"></b>ITXAP Soluciones
+                                <small>Administrador</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <ul class="nav nav-profile">
+                            <li><a href="javascript:;"><i class="fa fa-cog"></i> Configuraciones</a></li>
+                            <li><a href="javascript:;"><i class="fa fa-question-circle"></i> Manuales</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- end sidebar user -->
+                <!-- begin sidebar nav -->
+                <ul class="nav">
+                    <li class="nav-header">Navegaci&oacute;n</li>
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="fas fa-dolly"></i>
+                            <span>Importaci&oacute;n</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="impo-carg-cont-full.html">Cargu&iacute;o de Contenedor Full</a></li>
+                            <li><a href="impo-tra-carg-m7.html">Traslado de Carga a Muelle 7</a></li>
+                            <li><a href="impo-carg-suelta.html">Cargu&iacute;o Carga Suelta</a></li>
+                            <li><a href="impo-desconsolidado.html">Desconsolidado</a></li>
+                            <li><a href="impo-transito.html">Recepcion de Transbordo Carga Suelta</a></li>
+                            <li><a href="impo-consulta-serv.html">Consulta de Servicios</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="fas fa-ship"></i>
+                            <span>Exportaci&oacute;n</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="has-sub">
+                                <a href="javascript:;">
+                                    <b class="caret"></b>
+                                    <i class="fas fa-file-contract"></i> Inscripciones
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="has-sub">
+                                        <a href="exportacionNacional.html"><i class="fas fa-flag"></i>Chile</a>
+                                    </li>
+                                    <li class="has-sub">
+                                        <a href="javascript:;">
+                                            <b class="caret"></b>
+                                            <i class="fas fa-flag"></i> Per&uacute;
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li><a href="contPeru.html">Contenedores</a></li>
+                                            <li><a href="embarPeru.html">Procesamiento Embarque</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub">
+                                        <a href="javascript:;">
+                                            <b class="caret"></b>
+                                            <i class="fas fa-flag"></i> Bolivia
+                                        </a>
+                                        <ul class="sub-menu">
+
+                                            <li><a href="embarBolivia.html">Procesamiento Embarque</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub">
+                                        <a href="javascript:;">
+                                            <b class="caret"></b>
+                                            <i class="fas fa-flag"></i> Extraportuarios
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li><a href="contExtrapor.html">Contenedores</a></li>
+                                            <li><a href="embarExtraporBuscar.html">Procesamiento Embarque</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="reexportacion.html">
+                                            <i class="fas fa-redo-alt"></i> Re-Exportaci&oacute;n
+                                        </a>
+                                    </li>
+                                    <li class="has-sub ">
+                                        <a href="javascript:;">
+                                            <b class="caret"></b>
+                                            <i class="fas fa-flag"></i> Vacios
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li><a href="embarVacios.html">Contenedores</a></li>
+                                            <li class=""><a href="consul-serv-vacios.html">Consulta Servicios</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub">
+                                        <a href="reasignar.html">
+                                             Reasignar Contenedor
+                                        </a>
+
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-sub">
+                                <a href="javascript:;">
+                                    <b class="caret"></b>
+                                    <i class="fas fa-truck-loading"></i> Carga Suelta
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="cas-asignar.html">Asignar</a></li>
+
+                                    <li class=""><a href="cas-consulta-serv.html">Consulta Servicios</a></li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="fas fa-toolbox"></i>
+                            <span>Administraci&oacute;n</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="has-sub active">
+                                <a href="javascript:;">
+                                    <b class="caret"></b>
+                                    <i class="fas fa-user"></i> Usuarios
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="agencias.html">Agencia de Aduanas</a></li>
+                                    <li><a href="#">Extraportuarios</a></li>
+                                    <li><a href="#">Transportistas</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <span>Pago Facturas</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="pagos-servicios.html">Servicios</a></li>
+                            <li><a href="pagos-refactura.html">Refacturaci&oacute;n</a></li>
+                            <li><a href="pagos-facturas.html">Facturas</a></li>
+                            <li><a href="pagos-representante.html">Representantes</a></li>
+                            <li><a href="pagos-historial.html">Historial de Pagos</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub active">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="fas fa-info-circle"></i>
+                            <span>Informaci&oacute;n</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="dpu-resumen.html">DPU RESUMEN</a></li>
+                            <li><a href="tarif-almacen.html">Tarificador de almacenaje</a></li>
+                            <li class="active"><a href="tracking-cont.html">Tracking del contenedor</a></li>
+                            <li><a href="consulta-tatc.html">Consulta TATC</a></li>
+                            <li><a href="eir-transmitido.html">EIR Transmitido</a></li>
+                            <li><a href="info-consult-public.html">Consulta P&uacute;blica Importaci&oacute;n</a></li>
+                            <li><a href="stock-carga-suelta-filtro.html">Stock Carga suelta</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fas fa-door-open"></i>
+                            <span>Cerrar Sesi&oacute;n</span>
+                        </a>
+                    </li>
+                    <!-- begin sidebar minify button -->
+                    <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+                    <!-- end sidebar minify button -->
+                </ul>
+                <!-- end sidebar nav -->
+            </div>
+            <!-- end sidebar scrollbar -->
+        </div>
+        <div class="sidebar-bg"></div>
+        <!-- end #sidebar -->
+
+        <!-- begin #content -->
+        <div id="content" class="content">
+            <!-- begin breadcrumb -->
+            <!--<ol class="breadcrumb float-xl-right">
+		<li class="breadcrumb-item"><a href="javascript:;">Home</a>&nbsp;/ Administración / Usuarios / Agencia de Aduanas</li>
+	</ol>-->
+            <!-- end breadcrumb -->
+            <!-- begin page-header -->
+            <h1 class="page-header">Tracking del Contenedor</h1>
+            <!-- end page-header -->
+
+            <div class="panel panel-inverse">
+                <!-- begin panel-heading -->
+                <div class="panel-heading">
+                    <h4 class="panel-title">Filtros de B&uacute;squeda</h4>
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                    </div>
+                </div>
+                <!-- end panel-heading -->
+                <!-- begin panel-body -->
+                <div class="panel-body panel-form">
+                    <form class="form-horizontal form-bordered">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Contenedor</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" placeholder="N&ordm;Contenedor" value="MSMU7066984" />
+                            </div>
+                            <div class="col-sm-2">
+                                <a href="#" class="btn btn-primary"><i class="fas fa-search"></i> Buscar</a>
+                            </div>
+                            <div class="col-sm-1">
+                                <a href="#" class="btn btn-secondary">Limpiar</a>
+                            </div>
+                            <div class="col-sm-4">&nbsp;</div>
+                        </div>
+                    </form>
+                </div>
+                <!-- end panel-body -->
+            </div>
+
+            <div class="panel panel-inverse">
+                <!-- begin panel-heading -->
+                <!--<div class="panel-heading">
+					<h4 class="panel-title">Contenedores Inscritos</h4>
+					<div class="panel-heading-btn">
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+					</div>
+				</div>-->
+                <!-- end panel-heading -->
+                <!-- begin panel-body -->
+                <div class="panel-body">
+
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">N&ordm; Contenedor</label>
+                        <label class="col-sm-2 col-form-label"><strong>MSMU7066984</strong></label>
+                        <label class="col-sm-2 col-form-label">N&ordm; Booking</label>
+                        <label class="col-sm-2 col-form-label"><strong>070ILP0072336</strong></label>
+                    </div>
+                    <hr style="margin-top:0 !important;margin-bottom:0 !important">
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Nave/Viaje</label>
+                        <label class="col-sm-4 col-form-label"><strong>MSCMAMU 106R</strong></label>
+                        <label class="col-sm-2 col-form-label">Tipo Tr&aacute;nsito</label>
+                        <label class="col-sm-4 col-form-label"><strong>Bolivia Embarque</strong></label>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Categoria</label>
+                        <label class="col-sm-4 col-form-label"><strong>Exportaci&oacute;n</strong></label>
+                        <label class="col-sm-2 col-form-label">Documento Recepci&oacute;n</label>
+                        <label class="col-sm-4 col-form-label"><strong>MICB - 1070484</strong></label>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Tipo Servicio</label>
+                        <label class="col-sm-4 col-form-label"><strong>Recepci&oacute;n del contenedor</strong></label>
+                        <label class="col-sm-2 col-form-label">Documento Despacho</label>
+                        <label class="col-sm-4 col-form-label"><strong>DEX - 316</strong></label>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Consignatario</label>
+                        <label class="col-sm-4 col-form-label"><strong>BASCONT AGROEXPORT SAC</strong></label>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Mercancia</label>
+                        <label class="col-sm-4 col-form-label"><strong>ACEITUNAS</strong></label>
+                    </div>
+
+                    <br>&nbsp;
+
+                    <div class="form-group row">
+                        <div class="col-sm-2">
+                            <center><i class="far fa-check-circle fa-9x" style="color:#50D7B8;"></i></center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center><i class="far fa-check-circle fa-9x" style="color:#50D7B8;"></i></center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center><i class="far fa-check-circle fa-9x" style="color:#50D7B8;"></i></center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center><i class="far fa-check-circle fa-9x" style="color:#50D7B8;"></i></center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center><i class="far fa-check-circle fa-9x" style="color:#50D7B8;"></i></center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center><i class="far fa-circle fa-9x" style="color:#96A0B0;"></i></center>
+                        </div>
+
+                    </div>
+                    <div class="form-group row" style="font-size:20px;font-weight:bold;color:#50D7B8;">
+                        <div class="col-sm-2">
+                            <center>En tr&aacute;nsito</center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center>En Antepuerto</center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center>Planificado</center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center>Gate In</center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center>Yard</center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center>Embarcado</center>
+                        </div>
+                    </div>
+                    <div class="form-group row" style="font-weight:bold;color:#727272;">
+                        <div class="col-sm-2">
+                            <center>14/01 - 11:00</center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center>14/01 - 17:27</center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center>15/01 - 16:31</center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center>15/01 - 16:35</center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center>15/01 - 16:45</center>
+                        </div>
+                        <div class="col-sm-2">
+                            <center>Pendiente.</center>
+                        </div>
+                    </div>
+
+                    <!-- end panel-body -->
+                </div>
+            </div>
+            <!-- end #content -->
+
+            <!-- begin scroll to top btn -->
+            <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+            <!-- end scroll to top btn -->
+        </div>
+        <!-- end page container -->
+
+        <!-- ================== BEGIN BASE JS ================== -->
+        <script src="assets/js/app.min.js"></script>
+        <script src="assets/js/theme/default.min.js"></script>
+        <!-- ================== END BASE JS ================== -->
+
+        <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+        <script src="assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+        <!-- ================== END PAGE LEVEL JS ================== -->
+        <script type="text/javascript">
+            function goResumen() {
+
+                window.location.href = 'impo-resum-realizado.html';
+
+            }
+
+            function goResumen2() {
+
+                window.location.href = 'impo-resum-inscrp-transbordo-esp-pago.html';
+
+            }
+
+            function redireccionar() {
+
+                window.location.href = 'impo-resum-inscrp-noti.html';
+
+            }
+
+            function goIndirecto() {
+                window.location.href = 'impo-resum-inscrp-ind-noti.html';
+            }
+        </script>
+</body>
+
+</html>
